@@ -24,14 +24,14 @@ show_downloads: true
 baseurl: "" # the subpath of your site, e.g. /blog
 repository: "akofink/akofink.github.io"
 url: "http://akofink.com"
-google_analytics: 'UA-38833883-1'
+google_analytics: 'G-XD7J63TWYQ'
 # header_pages:
   # - post.md
 
 # Build settings
 markdown: kramdown
 theme: minima
-plugins:
+plugins: []
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
