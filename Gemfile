@@ -9,6 +9,8 @@ end
 gem "tzinfo-data", platforms: [:windows, :jruby]
 
 # Performance-booster for watching directories on Windows
-gem "wdm", "~> 0.1.0" if Gem.win_platform?
+group :development, optional: true do
+  gem "wdm", "~> 0.1.0" if Gem.win_platform?
+end
 
 gem "webrick", "~> 1.8"
