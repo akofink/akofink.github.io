@@ -47,4 +47,6 @@ EVIDENCE_DIR=/your/ignored/evidence npm run test:browser
 
 The browser suite exercises assembled, exploded, all six component states, reading, standard/reduced motion, keyboard focus, Back, Escape, reassembly, rapid animation reversal/cancellation, zoom/scroll, copy, direct deep links and no-script content. It renders desktop and touch-emulated mobile, with additional 320/768/1024/1920px checks, axe scans and local-only request assertions. Full-page screenshots are captured from scroll origin so a sticky masthead does not falsely cover offscreen content; viewport and plate captures retain actual interaction context.
 
+Five actual page captures are retained in [EVIDENCE.md](EVIDENCE.md); they are not runtime assets.
+
 This does not establish subjective creative quality, physical accuracy, screen-reader compatibility, physical-device behavior or cross-browser accessibility. See [SOURCES.md](SOURCES.md) for factual scope. No production changes, hosting or deployment automation are included.
