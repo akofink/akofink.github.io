@@ -1,5 +1,5 @@
-// Facts and links drawn from the existing site's index.md and _config.yml.
-// Employer-specific copy is intentionally omitted pending a freshness check.
+// Bio: existing site plus operator-confirmed employer/team/office, November 7, 2026.
+// Project claims: public READMEs only. See SOURCES.md for provenance and boundaries.
 export const person = {
   name: 'Andrew Kofink',
   first: 'Andrew',
@@ -8,7 +8,7 @@ export const person = {
   intro: 'Software engineer. City dweller. Endlessly curious.',
   origin: 'I grew up on the coast of North Carolina, near Emerald Isle. I studied at North Carolina State University before moving to New York City.',
   home: 'I live in Hell’s Kitchen, close to the opera and ballet performances I love. Away from the screen, I enjoy cycling, cooking, gardening, and finding good food.',
-  work: 'I work in software, with a background in electrical engineering. My interests reach across science and engineering, especially climate change, space exploration, and electronics.',
+  work: 'I’m a software engineer at Atlassian, working on Bitbucket Cloud in the NYC office. My background is in electrical engineering, and my interests reach across climate change, space exploration, and electronics.',
   hello: 'I enjoy tech events around the city, on topics from Kubernetes to Go. If our paths cross, feel free to say hi.',
   interests: ['Opera & ballet', 'Cycling', 'Cooking', 'Gardening', 'Science & engineering'],
   links: [
@@ -18,6 +18,43 @@ export const person = {
   ],
   education: ['North Carolina State University', 'https://www.ncsu.edu/']
 };
+export const projects = [
+  {
+    id: 'dots', title: 'A setup worth sharing', name: 'dots', status: 'Public setup',
+    description: 'My dotfiles bring shell, editor, tmux, and coding-agent setup together. Public installers connect shared agent instructions and skills to each tool; a separate private notes repository holds my personal context.',
+    idea: 'Keep reusable setup public and personal context separate. Start with one module rather than adopting someone else’s whole environment.',
+    source: 'https://github.com/akofink/dots', action: 'Explore the setup',
+    extra: ['Module guide', 'https://github.com/akofink/dots#modules']
+  },
+  {
+    id: 'akagent', title: 'Work that survives a session', name: 'akagent-cli', status: 'Developer tool',
+    description: 'A local-first registry and CLI for coding-agent tasks, observations, and recovery. It keeps durable records while Git, tmux, and provider tools remain responsible for their own actions.',
+    idea: 'Separate the record of work from the tools that do it. Explicit task identity and acknowledgments make handoffs easier to reason about.',
+    source: 'https://github.com/akofink/akagent-cli', action: 'Read the source',
+    extra: ['Quick start', 'https://github.com/akofink/akagent-cli/blob/main/docs/quick-start.md']
+  },
+  {
+    id: 'live-staff', title: 'See the note you play', name: 'Live Staff', status: 'Personal preview',
+    description: 'A browser app that turns one sustained instrument or voice into live notation. Microphone audio is analyzed locally, not uploaded. The monophonic detector is a proof of concept and can pick the wrong octave.',
+    idea: 'A useful music tool can be local-first: keep audio on the device, show the signal clearly, and make the detector’s limits explicit.',
+    source: 'https://github.com/akofink/live-staff', action: 'Read the source',
+    extra: ['Try Live Staff', 'https://live-staff.akofink.com/']
+  },
+  {
+    id: 'tinderbox', title: 'A world to play with', name: 'Tinderbox', status: 'Game experiment',
+    description: 'A falling-element sandbox where fire, wind, rain, and living systems reshape a world. Paint materials, tune rules, and see what happens. It builds on ideas explored in Cascade.',
+    idea: 'Expose the rules and let curiosity drive the interaction. A small simulation becomes a place to experiment, not just something to watch.',
+    source: 'https://github.com/akofink/tinderbox', action: 'Explore the code',
+    extra: ['Play in the browser', 'https://akofink.com/tinderbox/']
+  },
+  {
+    id: 'cascade', title: 'What happens under overload?', name: 'Cascade', status: 'Simulation experiment',
+    description: 'A Rust cellular sandbox exploring a fixed work budget per update. Under the bounded policy, extra work waits instead of all running at once; a traditional comparison policy deliberately permits stalls.',
+    idea: 'Make overload an explicit design choice. Compare bounded and unbounded work, and show the backlog rather than hiding the tradeoff.',
+    source: 'https://github.com/akofink/cascade-game-demo', action: 'Explore the code',
+    extra: ['Read the experiment', 'https://akofink.com/cascade-game-demo/']
+  }
+];
 export const designs = [
   {id:'01-editorial', name:'The Sunday edition', type:'Editorial / portrait', description:'A generous serif masthead, a candid portrait, and quiet newspaper columns. A personal introduction that rewards reading.', tradeoff:'Warm and readable; the portrait sets the tone.', palette:['#f1eee6','#242722','#a24a30']},
   {id:'02-botanical', name:'A little room to grow', type:'Organic / illustrated', description:'Deep garden green, a hand-drawn botanical plate, and gently asymmetric sections. The interests lead, not the résumé.', tradeoff:'Expressive without needing a new photograph.', palette:['#183f35','#e5edcf','#d4a461']},

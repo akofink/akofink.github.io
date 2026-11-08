@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
-import {designs} from './content.mjs';
+import {designs,projects} from './content.mjs';
 const load=path=>readFile(new URL(`dist/${path}`,import.meta.url),'utf8');
 assert.equal(designs.length,10);
 assert.equal(new Set(designs.map(d=>d.id)).size,10);
@@ -12,6 +12,10 @@ for(const d of designs){
  assert.match(html,/Skip to content/);
  assert.match(html,/Andrew/);
  assert.match(html,/mailto:ajkofink@gmail.com/);
+ assert.match(html,/Atlassian, working on Bitbucket Cloud in the NYC office/);
+ assert.equal((html.match(/class="project-item"/g)||[]).length,5);
+ for(const project of projects) assert.ok(html.includes(project.source),`${d.id}: project source missing`);
+ assert.doesNotMatch(html,/\/home\/|dev\/repos\/notes|dated\/2026|dispatches\/|github\.com\/akofink\/notes/);
  assert.doesNotMatch(html,/googletagmanager|gtag\(/);
  for(const href of [...html.matchAll(/href="#([^"]+)"/g)].map(x=>x[1])) assert.ok(html.includes(`id="${href}"`),`${d.id}: missing #${href}`);
 }

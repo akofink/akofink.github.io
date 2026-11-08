@@ -20,6 +20,7 @@ try{
   for(const [i,d] of designs.entries()){
    await page.goto(`${base}/${d.id}/`,{waitUntil:'networkidle'});
    await page.locator('h1').waitFor();
+   await page.evaluate(()=>document.activeElement?.blur());
    assert.equal(await page.locator('h1').count(),1);
    const overflow=await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth);
    if(overflow)failures.push(`${d.id} ${size}: horizontal overflow`);
@@ -30,12 +31,16 @@ try{
     if(violations.length)failures.push(`${d.id} ${size}: ${violations.map(v=>v.id).join(', ')}`);
     results.push({route:d.id,size,width,height,overflow,violations});
     await page.screenshot({path:`${output}/${d.id}-${size}.png`,fullPage:true});
+    if(size!=='tablet') await page.locator('#projects').screenshot({path:`${output}/${d.id}-projects-${size}.png`,style:'.exhibit-bar,.skip{visibility:hidden!important}'});
    }
    await page.keyboard.press('Tab');
    const focused=await page.evaluate(()=>document.activeElement.textContent);
    assert.equal(focused,'Skip to content',d.id+' keyboard skip');
    await page.keyboard.press('Enter');
    assert.equal(await page.evaluate(()=>location.hash),'#main');
+   assert.equal(await page.locator('.project-item').count(),5);
+   await page.locator('.exhibit-bar a[href="#projects"]').click();
+   assert.equal(await page.evaluate(()=>location.hash),'#projects');
   }
  }
  for(const [size,width,height] of [['desktop',1440,1000],['mobile',390,844]]){

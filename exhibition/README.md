@@ -33,7 +33,9 @@ Gallery cards open full-size designs. Prev/Next links cycle through all ten. **C
 
 ## Content and materials
 
-Edit `content.mjs` to update shared factual copy, interests and public links. Presentation-specific headlines and introductions live in `build.mjs`. The ten templates deliberately differ in content hierarchy and layout; they are not ten color themes. There are no invented projects, awards, testimonials, or employment claims. Employer-specific copy is omitted from alternatives pending confirmation. Existing location and biographical facts may still need a freshness review.
+Edit `content.mjs` to update shared factual copy, interests, public links and curated project stories. Presentation-specific headlines and introductions live in `build.mjs`; `projects.css` gives the shared stories ten design-native treatments. The ten templates deliberately differ in content hierarchy and layout; they are not ten color themes. There are no invented projects, awards, testimonials, or employment claims. Andrew confirmed Atlassian / Bitbucket Cloud / NYC office. Other existing location and biographical facts may still need a freshness review.
+
+Each design includes five public-source project stories: dots and shared agent/skills setup, akagent-cli, Live Staff, Tinderbox, and Cascade. Each distinguishes project status, gives a concrete idea to borrow, and links public source plus applicable documentation/demo. `SOURCES.md` records provenance and qualifications. The private notes repository is described only at the explicitly permitted existence/architectural-role level, with no private links, paths, content or artifacts.
 
 The portrait is the existing repository's `assets/i_voted.jpg`, reused rather than replaced with a random person. Artwork is original CSS/SVG. Fonts are system stacks, so rendering will vary somewhat across platforms. No external font service, tracking, backend, or animation is required. Motion is disabled under reduced-motion preferences; native links, focus outlines and skip links support keyboard access.
 
@@ -51,6 +53,6 @@ EVIDENCE_DIR=./evidence npm run test:browser
 # Optional existing browser: CHROMIUM_PATH=/path/to/chrome
 ```
 
-The browser check uses headless Chromium and axe WCAG A/AA checks. It captures all ten at desktop (1440px), tablet (768px), and mobile (390px), checks 320px reflow, checks gallery/comparison at desktop/mobile, captures baseline, and tests skip links, shortlist persistence, comparison selection, expandable entries, console/network failures and absence of third-party requests. `BASE_URL` can override the local URL. Keep generated evidence outside tracked sources.
+The browser check uses headless Chromium and axe WCAG A/AA checks. It captures all ten at desktop (1440px), tablet (768px), and mobile (390px), checks 320px reflow, checks gallery/comparison at desktop/mobile, captures baseline and project-section crops, and tests project jump links, skip links, shortlist persistence, comparison selection, expandable entries, console/network failures and absence of third-party requests. `BASE_URL` can override the local URL. Project-only crops hide the sticky exhibition toolbar and skip-link overlay to show the content cleanly; full-page captures retain the actual page layout. Keep generated evidence outside tracked sources.
 
 Automated checks do not establish complete accessibility or physical-device compatibility. Safari/Firefox, assistive-technology use and current external link destinations need separate review. No Jekyll production build or deployment is needed to review this exhibition. Picking a direction does not authorize publishing it.
