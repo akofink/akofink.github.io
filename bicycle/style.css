@@ -1,0 +1,1570 @@
+:root {
+  --paper: #eae6da;
+  --ink: #283330;
+  --muted: #59645f;
+  --blue: #214d9a;
+  --rule: #a8afa0;
+  --rust: #904e32;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--ink);
+  background: var(--paper);
+  color-scheme: light;
+  font-synthesis: none;
+}
+* {
+  box-sizing: border-box;
+}
+[hidden] {
+  display: none !important;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0;
+}
+a {
+  color: inherit;
+  text-underline-offset: 0.23em;
+}
+button {
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  border: 1px solid var(--ink);
+  border-radius: 0;
+  background: transparent;
+  min-height: 44px;
+  padding: 0.75rem 1rem;
+}
+button:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible,
+[tabindex="0"]:focus-visible {
+  outline: 3px solid var(--rust);
+  outline-offset: 5px;
+}
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+p {
+  line-height: 1.6;
+}
+.skip {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  background: #fff;
+  color: #111;
+  z-index: 50;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+}
+.skip:focus {
+  width: auto;
+  height: auto;
+  padding: 1rem;
+  clip-path: none;
+}
+.masthead {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--paper);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  padding: 1.4rem 4vw;
+  border-bottom: 1px solid var(--rule);
+}
+.identity {
+  text-decoration: none;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.7rem;
+  letter-spacing: -0.04em;
+}
+.identity span {
+  display: block;
+  font: 10px/1.5 monospace;
+  letter-spacing: 0.08em;
+  margin-top: 0.4rem;
+}
+.masthead nav {
+  display: flex;
+  align-items: center;
+  gap: 1.7rem;
+  font: 12px monospace;
+}
+.masthead nav button {
+  font-size: 11px;
+  border: 0;
+  padding: 0.6rem;
+}
+.masthead button[aria-pressed="true"] {
+  background: var(--ink);
+  color: var(--paper);
+}
+main {
+  padding: 0 4vw;
+}
+.introduction {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 5vw;
+  padding: 3rem 0 1.8rem;
+  max-width: 1500px;
+  margin: auto;
+  align-items: center;
+}
+.edition {
+  font: 10px/1.5 monospace;
+  letter-spacing: 0.12em;
+  margin-bottom: 1.5rem;
+}
+h1 {
+  font:
+    clamp(3.8rem, 6.8vw, 7.8rem)/0.94 Georgia,
+    "Times New Roman",
+    serif;
+  letter-spacing: -0.06em;
+  font-weight: 400;
+  margin-bottom: 1rem;
+}
+h1 em {
+  font-weight: 400;
+  color: var(--blue);
+}
+.introduction-note {
+  max-width: 26em;
+  font-size: 1rem;
+  padding-top: 2rem;
+}
+.introduction-note p {
+  margin-bottom: 0.8rem;
+}
+.introduction-note strong {
+  font-weight: 500;
+}
+.introduction-note .invitation {
+  font-family: Georgia, serif;
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--blue);
+}
+.workshop {
+  max-width: 1500px;
+  margin: auto;
+  border-top: 1px solid var(--ink);
+  scroll-margin-top: 7rem;
+}
+.workshop-toolbar {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  align-items: center;
+  padding: 1.4rem 0;
+}
+.workshop-toolbar > div:first-child {
+  position: relative;
+  padding-left: 1.3rem;
+}
+.live-dot {
+  position: absolute;
+  left: 0;
+  top: 0.35rem;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--blue);
+}
+#plate-title {
+  font: 13px/1.4 monospace;
+  margin: 0 0 0.5rem;
+  letter-spacing: 0.01em;
+}
+#plate-title:focus {
+  outline: none;
+}
+#plate-subtitle {
+  font: 9px/1.6 monospace;
+  letter-spacing: 0.1em;
+  margin: 0;
+  color: var(--muted);
+}
+.workshop-actions {
+  display: flex;
+  gap: 0.7rem;
+  align-items: center;
+}
+.workshop-actions button {
+  font: 12px monospace;
+}
+#deconstruct {
+  background: var(--blue);
+  color: #fff;
+  border-color: var(--blue);
+  min-width: 225px;
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+}
+#deconstruct:hover {
+  background: #16366c;
+}
+.workshop-grid {
+  position: relative;
+}
+.drawing {
+  position: relative;
+  margin: 0;
+  border: 1px solid var(--rule);
+  background-color: #eeece3;
+  background-image: radial-gradient(#76877a33 0.6px, transparent 0.7px);
+  background-size: 17px 17px;
+  overflow: hidden;
+}
+.drawing-viewport {
+  overflow: auto;
+  scrollbar-color: #8d9889 #eae6da;
+  max-height: 700px;
+  overscroll-behavior: contain;
+}
+.drawing-viewport:focus-visible {
+  outline-offset: -5px;
+}
+.drawing svg {
+  display: block;
+  width: 100%;
+  height: clamp(410px, 44vw, 650px);
+  overflow: visible;
+}
+.drawing-viewport.zoomed {
+  max-height: 650px;
+}
+.drawing-viewport.zoomed svg {
+  width: 160%;
+  min-width: 1100px;
+  height: auto;
+  max-height: none;
+}
+.drawing-corner {
+  position: absolute;
+  font: 9px/1.7 monospace;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  pointer-events: none;
+  z-index: 1;
+}
+.top-left {
+  left: 1.5rem;
+  top: 1.5rem;
+}
+.bottom-right {
+  right: 1.5rem;
+  bottom: 1.4rem;
+  text-align: right;
+}
+.drawing-tools {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 2;
+}
+.drawing-tools button {
+  border: 0;
+  background: #eeece3e8;
+  font: 10px monospace;
+  min-height: 44px;
+}
+.drawing-tools button:hover {
+  color: var(--ink);
+  text-decoration: underline;
+}
+figcaption {
+  padding: 1rem 2rem;
+  font: 11px/1.6 monospace;
+  border-top: 1px solid var(--rule);
+  max-width: 100%;
+  padding-right: 15rem;
+  min-height: 68px;
+  color: #505d55;
+}
+.part-index {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  border-bottom: 1px solid var(--ink);
+}
+.part-index a {
+  text-decoration: none;
+  padding: 1.25rem 1rem;
+  border-right: 1px solid var(--rule);
+  position: relative;
+  min-height: 105px;
+}
+.part-index a:first-child {
+  border-left: 1px solid var(--rule);
+}
+.part-index a:hover {
+  background: #dfe4d7;
+}
+.part-index a[aria-current] {
+  background: var(--ink);
+  color: var(--paper);
+}
+.part-index span {
+  display: block;
+  font: 10px monospace;
+  margin-bottom: 0.6rem;
+  color: var(--blue);
+}
+.part-index [aria-current] span {
+  color: #a7c6ff;
+}
+.part-index strong {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+.part-index small {
+  font: 10px/1.5 monospace;
+  display: block;
+  margin-top: 0.5rem;
+  color: var(--muted);
+}
+.part-index [aria-current] small {
+  color: #d3dccb;
+}
+.workshop-foot {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 1.2rem 0 2.5rem;
+  font: 10px/1.7 monospace;
+  color: var(--muted);
+}
+.workshop-foot p {
+  margin: 0;
+}
+.workshop-foot span {
+  color: var(--ink);
+  margin-right: 1rem;
+}
+.inspection {
+  padding: 2rem 0 2rem 2rem;
+}
+.enhanced .inspection[hidden],
+.enhanced #read[hidden],
+.enhanced .chapter[hidden] {
+  display: none;
+}
+.chapter-kicker {
+  font: 10px/1.5 monospace;
+  letter-spacing: 0.08em;
+  color: var(--blue);
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+.chapter h2 {
+  font:
+    clamp(2.6rem, 3.4vw, 4.6rem)/1.03 Georgia,
+    serif;
+  font-weight: 400;
+  letter-spacing: -0.045em;
+  margin-bottom: 1.5rem;
+}
+.chapter h2:focus {
+  outline: none;
+}
+.chapter .lead {
+  font:
+    italic 1.25rem/1.45 Georgia,
+    serif;
+  margin-bottom: 1.5rem;
+}
+.body-copy {
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+.project-links {
+  border-top: 1px solid var(--rule);
+  margin-top: 1.8rem;
+}
+.project-source {
+  display: block;
+  padding: 1rem 0;
+  text-decoration: none;
+  border-bottom: 1px solid var(--rule);
+}
+.project-source span {
+  display: block;
+  font: 13px monospace;
+  color: var(--blue);
+  margin-bottom: 0.5rem;
+}
+.project-source small {
+  display: block;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: var(--muted);
+}
+.project-source:hover span {
+  text-decoration: underline;
+}
+.takeaway {
+  border-left: 2px solid var(--blue);
+  padding: 0 0 0 1rem;
+  margin: 2rem 0;
+}
+.takeaway > span:first-child {
+  font: 9px/1.6 monospace;
+  letter-spacing: 0.08em;
+}
+.takeaway p {
+  font:
+    1.05rem/1.55 Georgia,
+    serif;
+  margin: 1rem 0;
+}
+.copy-idea {
+  font: 10px monospace;
+  border: 0;
+  border-bottom: 1px solid;
+  min-height: 44px;
+  padding: 0.5rem 0;
+}
+.copy-idea:hover {
+  background: transparent;
+  color: var(--blue);
+}
+.copy-status {
+  display: block;
+  font: 10px/1.5 monospace;
+  margin-top: 0.7rem;
+}
+.mechanics {
+  font: 11px/1.65 monospace;
+  color: var(--muted);
+  border-top: 1px solid var(--rule);
+  padding-top: 1rem;
+}
+.mechanics summary {
+  cursor: pointer;
+  min-height: 44px;
+  display: list-item;
+  padding: 0.5rem 0;
+}
+.mechanics p {
+  padding-top: 0.5rem;
+}
+.detail-plate {
+  display: none;
+}
+body[data-mode="inspect"] .workshop-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.85fr) minmax(300px, 1fr);
+  gap: 0;
+}
+body[data-mode="inspect"] .drawing {
+  position: sticky;
+  top: 8rem;
+  align-self: start;
+}
+body[data-mode="inspect"] .drawing svg {
+  height: auto;
+  min-height: 500px;
+}
+body[data-mode="inspect"] .drawing .drawing-corner {
+  display: none;
+}
+body[data-mode="inspect"] figcaption {
+  padding-right: 2rem;
+}
+body[data-mode="inspect"] .introduction {
+  padding-top: 2rem;
+  padding-bottom: 1.3rem;
+}
+body[data-mode="inspect"] .introduction h1 {
+  font-size: clamp(3rem, 4vw, 4.5rem);
+}
+body[data-mode="inspect"] .introduction-note {
+  padding-top: 0;
+  font-size: 0.85rem;
+}
+body[data-mode="inspect"] .introduction .edition {
+  margin-bottom: 0.8rem;
+}
+body[data-mode="reading"] .drawing {
+  display: none;
+}
+body[data-mode="reading"] .inspection {
+  padding: 2rem 0;
+}
+body[data-mode="reading"] #read {
+  max-width: 650px;
+  margin: 0 auto 4rem;
+}
+#read h2 {
+  font:
+    3.6rem/1 Georgia,
+    serif;
+  letter-spacing: -0.04em;
+}
+body[data-mode="reading"] .chapter {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 0 6vw;
+  padding: 3rem 0;
+  border-top: 1px solid var(--rule);
+  max-width: 1150px;
+  margin: auto;
+}
+body[data-mode="reading"] .chapter-kicker,
+body[data-mode="reading"] .chapter h2,
+body[data-mode="reading"] .chapter .lead {
+  grid-column: 1;
+}
+body[data-mode="reading"] .body-copy,
+body[data-mode="reading"] .project-links,
+body[data-mode="reading"] .takeaway,
+body[data-mode="reading"] .mechanics {
+  grid-column: 2;
+}
+body[data-mode="reading"] .body-copy {
+  grid-row: 1/4;
+}
+body[data-mode="reading"] .introduction {
+  display: none;
+}
+body:not(.enhanced) .chapter {
+  max-width: 750px;
+  margin: 3rem auto;
+  padding: 2rem 0;
+  border-top: 1px solid var(--rule);
+}
+body:not(.enhanced) #read {
+  margin: 3rem auto;
+  max-width: 750px;
+}
+body:not(.enhanced) .drawing-tools,
+body:not(.enhanced) .key-help {
+  display: none;
+}
+.no-script {
+  font: 14px/1.6 monospace;
+  padding: 2rem;
+  border: 1px solid;
+  margin: 2rem auto;
+  max-width: 750px;
+}
+footer {
+  border-top: 1px solid var(--rule);
+  padding: 2rem 4vw;
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  align-items: start;
+}
+footer > p {
+  font:
+    italic 1.5rem/1.2 Georgia,
+    serif;
+  letter-spacing: -0.03em;
+}
+footer > div {
+  font: 9px/1.8 monospace;
+  color: var(--muted);
+}
+footer > div span {
+  display: block;
+}
+footer > a {
+  font: 11px monospace;
+}
+/* The illustration is one built object. These styles describe material, not UI skins. */
+#bicycle {
+  color: var(--ink);
+  shape-rendering: geometricPrecision;
+}
+#bicycle path,
+#bicycle circle,
+#bicycle ellipse {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.tire {
+  fill: none;
+  stroke: #303631;
+  stroke-width: 13;
+}
+.sidewall {
+  fill: none;
+  stroke: #b99868;
+  stroke-width: 7;
+}
+.rim {
+  fill: none;
+  stroke: url(#metal);
+  stroke-width: 10;
+}
+.rim-edge {
+  fill: none;
+  stroke: #5c6964;
+  stroke-width: 1.4;
+}
+.rim-glint {
+  fill: none;
+  stroke: #fffdf0;
+  stroke-width: 1.2;
+}
+.spoke {
+  fill: none;
+  stroke: #879389;
+  stroke-width: 0.8;
+}
+.hub-flange {
+  fill: url(#metal);
+  stroke: #52655e;
+  stroke-width: 1;
+}
+.axle {
+  fill: #697a73;
+  stroke: #253e35;
+  stroke-width: 1;
+}
+.bolt {
+  fill: #e8eddf;
+  stroke: #4c5d54;
+  stroke-width: 1;
+}
+.valve {
+  stroke: #374d41;
+  stroke-width: 3;
+}
+.tube-outline {
+  fill: none;
+  stroke: #263f5a;
+  stroke-width: 19;
+}
+.tube {
+  fill: none;
+  stroke: url(#paint);
+  stroke-width: 15;
+}
+.tube-glint {
+  fill: none;
+  stroke: #7aa7e8;
+  stroke-width: 1;
+  transform: translate(-1px, -3px);
+}
+.lug {
+  fill: none;
+  stroke: #a8c4e8;
+  stroke-width: 2;
+}
+.bb-shell {
+  fill: url(#metal);
+  stroke: #1d3f68;
+  stroke-width: 4;
+}
+.shell-hole {
+  fill: #455b5a;
+  stroke: #d1dbcc;
+  stroke-width: 1;
+}
+.decal-line {
+  fill: none;
+  stroke: #d7dccc;
+  stroke-width: 0.7;
+}
+.frame-decal {
+  font: 9px monospace;
+  letter-spacing: 3px;
+  fill: #f3efde;
+}
+.dropout {
+  fill: none;
+  stroke: #384f5b;
+  stroke-width: 5;
+}
+.fork-far {
+  fill: none;
+  stroke: #677c8d;
+  stroke-width: 5;
+}
+.headset-silver,
+.crown {
+  fill: none;
+  stroke: #bcc8c0;
+  stroke-width: 6;
+}
+.seatpost-shadow,
+.stem-shadow {
+  fill: none;
+  stroke: #43564e;
+  stroke-width: 13;
+}
+.seatpost,
+.stem {
+  fill: none;
+  stroke: url(#metal);
+  stroke-width: 9;
+}
+.saddle-rail {
+  fill: none;
+  stroke: #61716a;
+  stroke-width: 3;
+}
+.saddle {
+  fill: #573a2c;
+  stroke: #362a25;
+  stroke-width: 1.5;
+}
+.leather-stitch {
+  fill: none;
+  stroke: #a78b68;
+  stroke-width: 0.7;
+}
+.seat-clamp {
+  stroke: #d3dccf;
+  stroke-width: 7;
+}
+.handlebar,
+.bar-far {
+  fill: none;
+  stroke: #3e4d43;
+  stroke-width: 9;
+}
+.bar-far {
+  stroke: #7e8a7f;
+  stroke-width: 6;
+}
+.bar-tape {
+  fill: none;
+  stroke: #b9a181;
+  stroke-width: 10;
+  stroke-dasharray: 2 3;
+}
+.hood {
+  fill: #2f3c34;
+  stroke: #192b22;
+  stroke-width: 1;
+}
+.brake-lever {
+  fill: none;
+  stroke: url(#metal);
+  stroke-width: 4;
+}
+.far-lever {
+  fill: none;
+  stroke: #738376;
+  stroke-width: 3;
+}
+.cable {
+  fill: none;
+  stroke: #455349;
+  stroke-width: 1.3;
+}
+.cable-stop {
+  fill: none;
+  stroke: #8e9a87;
+  stroke-width: 3;
+}
+.caliper {
+  fill: none;
+  stroke: #65776c;
+  stroke-width: 5;
+}
+.brake-pad {
+  fill: none;
+  stroke: #263b2e;
+  stroke-width: 6;
+}
+.chain-shadow {
+  fill: none;
+  stroke: #3b493d;
+  stroke-width: 4;
+}
+.chain {
+  fill: none;
+  stroke: #b6bba5;
+  stroke-width: 2;
+  stroke-dasharray: 1 4;
+}
+.gear {
+  fill: #b6bda9;
+  stroke: #4c5d4c;
+  stroke-width: 1.3;
+}
+.lockring {
+  fill: url(#metal);
+  stroke: #4c5f50;
+  stroke-width: 1.5;
+}
+.chainring-hole {
+  fill: #eeece3;
+  stroke: #61715e;
+  stroke-width: 1;
+}
+.spider {
+  stroke: #8a9a88;
+  stroke-width: 8;
+}
+.crank-shadow {
+  fill: none;
+  stroke: #4b6054;
+  stroke-width: 13;
+}
+.crank {
+  fill: none;
+  stroke: url(#metal);
+  stroke-width: 9;
+}
+.crank-bolt {
+  fill: #6d7e6b;
+  stroke: #eff2e4;
+  stroke-width: 2;
+}
+.pedal {
+  fill: #465548;
+  stroke: #233a2c;
+  stroke-width: 1;
+}
+.pedal-grip {
+  fill: none;
+  stroke: #a5ac95;
+  stroke-width: 2;
+}
+.far-crank {
+  fill: none;
+  stroke: #7e8978;
+  stroke-width: 6;
+}
+.far-pedal {
+  stroke: #7e8978;
+  stroke-width: 6;
+}
+.ground {
+  fill: #a0ab9222;
+  stroke: none;
+}
+.assembly-ghost {
+  fill: none;
+  stroke: #818f7944;
+  stroke-width: 1;
+  stroke-dasharray: 3 5;
+  opacity: 0;
+}
+.dimension {
+  fill: none;
+  stroke: #9ca68f;
+  stroke-width: 0.7;
+}
+.engraving {
+  font: 10px monospace;
+  letter-spacing: 0.07em;
+  fill: #4f604e;
+}
+.pin-leader {
+  fill: none;
+  stroke: #738475;
+  stroke-width: 0.7;
+}
+.part-pin {
+  transition: opacity 200ms;
+}
+.is-shifting .part-pin {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.part-pin circle {
+  fill: #eeece3;
+  stroke: #254c80;
+  stroke-width: 1;
+}
+.part-pin .pin-hit,
+.part-pin a:hover .pin-hit,
+.part-pin a:focus-visible .pin-hit {
+  fill: transparent;
+  stroke: none;
+}
+.part-pin text {
+  fill: #254c80;
+  font: 11px monospace;
+}
+.part-pin a:hover circle,
+.part-pin a:focus-visible circle {
+  fill: #254c80;
+  stroke: #254c80;
+  stroke-width: 3;
+}
+.part-pin a:hover text,
+.part-pin a:focus-visible text {
+  fill: #fff;
+}
+.part-pin a:focus-visible {
+  outline: none;
+}
+.exploded-axes {
+  opacity: 0;
+  fill: none;
+  stroke: #8d9a80;
+  stroke-width: 1;
+  stroke-dasharray: 3 6;
+}
+#assembly [data-piece] {
+  transition: transform 950ms cubic-bezier(0.22, 0.7, 0.25, 1);
+}
+[data-exploded="true"] [data-piece="rear-wheel"] {
+  transform: translate(-105px, 70px);
+}
+[data-exploded="true"] [data-piece="front-wheel"] {
+  transform: translate(115px, 70px);
+}
+[data-exploded="true"] [data-piece="drive"] {
+  transform: translate(50px, 115px);
+}
+[data-exploded="true"] [data-piece="fork"] {
+  transform: translate(65px, -35px);
+}
+[data-exploded="true"] [data-piece="cockpit"] {
+  transform: translate(80px, -120px);
+}
+[data-exploded="true"] [data-piece="saddle"] {
+  transform: translate(-40px, -105px);
+}
+[data-exploded="true"] .exploded-axes,
+[data-exploded="true"] .assembly-ghost {
+  opacity: 1;
+  transition: opacity 700ms;
+}
+body[data-mode="exploded"] .ground {
+  opacity: 0;
+}
+.axis {
+  fill: none;
+  stroke: #82907a;
+  stroke-width: 1;
+  stroke-dasharray: 5 8;
+}
+.leader,
+.plate-rule {
+  fill: none;
+  stroke: #89957f;
+  stroke-width: 1;
+}
+.plate-statement {
+  font:
+    italic 32px Georgia,
+    serif;
+  fill: #284d79;
+  letter-spacing: -0.02em;
+}
+.cylinder {
+  fill: url(#metal);
+  stroke: #536653;
+  stroke-width: 1.4;
+}
+.cylinder-end {
+  fill: #d1d9c6;
+  stroke: #596c54;
+  stroke-width: 1.4;
+}
+.bearing-outer {
+  fill: #c8d1be;
+  stroke: #4d6551;
+  stroke-width: 2;
+}
+.bearing-inner {
+  fill: #eeece3;
+  stroke: #6e8065;
+  stroke-width: 1.4;
+}
+.bearing-ball {
+  fill: #f6f7e9;
+  stroke: #61785f;
+  stroke-width: 1;
+}
+.large-spider {
+  stroke: #8c9c87;
+  stroke-width: 22;
+}
+.large-crank-shadow {
+  fill: none;
+  stroke: #52664f;
+  stroke-width: 31;
+}
+.large-crank {
+  fill: none;
+  stroke: url(#metal);
+  stroke-width: 24;
+}
+.lockring-notch {
+  stroke: #3d5c43;
+  stroke-width: 5;
+}
+.steerer {
+  fill: none;
+  stroke: url(#shaft-metal);
+  stroke-width: 25;
+}
+.engraving.on-paint {
+  fill: #eff1df;
+}
+.head-tube-shell {
+  fill: url(#paint);
+  stroke: #2d4e75;
+  stroke-width: 3;
+}
+.head-tube-top {
+  fill: #c3cdbb;
+  stroke: #2b4e72;
+  stroke-width: 3;
+}
+.cut-tube {
+  fill: none;
+  stroke: #2862b8;
+  stroke-width: 19;
+}
+.crown-race {
+  fill: url(#metal);
+  stroke: #536c51;
+  stroke-width: 2;
+}
+.fork-crown {
+  fill: none;
+  stroke: #244e92;
+  stroke-width: 30;
+}
+.fork-blade {
+  fill: none;
+  stroke: url(#paint);
+  stroke-width: 17;
+}
+.wheel-empty {
+  fill: none;
+  stroke: #657b5d;
+  stroke-width: 1;
+}
+.large-bar {
+  fill: none;
+  stroke: #52614b;
+  stroke-width: 24;
+}
+.large-tape {
+  fill: none;
+  stroke: #bba682;
+  stroke-width: 27;
+  stroke-dasharray: 4 7;
+}
+.large-lever {
+  stroke: url(#metal);
+  stroke-width: 13;
+  fill: none;
+}
+.large-cable {
+  fill: none;
+  stroke: #4c624b;
+  stroke-width: 2;
+}
+.brake-track {
+  fill: url(#metal);
+  stroke: #687c5d;
+  stroke-width: 1;
+}
+.large-caliper {
+  fill: none;
+  stroke: url(#metal);
+  stroke-width: 16;
+}
+.large-pad {
+  stroke: #2f4930;
+  stroke-width: 19;
+}
+.magnifier {
+  fill: #e4e6d8;
+  stroke: #82937b;
+  stroke-width: 1;
+}
+.magnifier-line {
+  fill: none;
+  stroke: #82937b;
+  stroke-width: 1;
+  stroke-dasharray: 3 6;
+}
+.large-lug {
+  fill: none;
+  stroke: #bbd0e7;
+  stroke-width: 5;
+}
+.large-saddle {
+  fill: #68422e;
+  stroke: #392d24;
+  stroke-width: 2;
+}
+.large-stitch {
+  fill: none;
+  stroke: #b59a70;
+  stroke-width: 1.7;
+  stroke-dasharray: 4 5;
+}
+.large-rails {
+  fill: none;
+  stroke: url(#metal);
+  stroke-width: 8;
+}
+.large-post-shadow {
+  fill: none;
+  stroke: #546a51;
+  stroke-width: 40;
+}
+.large-post {
+  fill: none;
+  stroke: url(#metal);
+  stroke-width: 33;
+}
+.rail-clamp {
+  fill: url(#metal);
+  stroke: #5c7054;
+  stroke-width: 2;
+}
+.low-motion *,
+.low-motion *:before,
+.low-motion *:after {
+  transition: none !important;
+  animation: none !important;
+  scroll-behavior: auto !important;
+}
+html:has(.low-motion) {
+  scroll-behavior: auto;
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *:before,
+  *:after {
+    transition: none !important;
+    animation: none !important;
+    scroll-behavior: auto !important;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
+@media (min-width: 1600px) {
+  .introduction {
+    padding-top: 4rem;
+    padding-bottom: 3rem;
+  }
+  .drawing svg {
+    height: 700px;
+  }
+}
+@media (max-width: 1000px) {
+  .introduction {
+    gap: 3vw;
+    grid-template-columns: 1.3fr 1fr;
+  }
+  h1 {
+    font-size: 4.7rem;
+  }
+  .introduction-note {
+    font-size: 0.9rem;
+  }
+  .part-index a {
+    padding: 1rem 0.6rem;
+  }
+  .part-index strong {
+    font-size: 0.8rem;
+  }
+  .part-index small {
+    font-size: 9px;
+  }
+  body[data-mode="inspect"] .workshop-grid {
+    grid-template-columns: minmax(0, 1.35fr) minmax(290px, 1fr);
+  }
+  .inspection {
+    padding-left: 1.5rem;
+  }
+  .chapter h2 {
+    font-size: 2.8rem;
+  }
+  .drawing-corner {
+    font-size: 8px;
+  }
+  figcaption {
+    font-size: 10px;
+  }
+}
+@media (max-width: 900px) {
+  .part-pin {
+    display: none;
+  }
+  .part-index {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    order: 1;
+    border-top: 1px solid var(--rule);
+  }
+  .part-index a {
+    min-height: 72px;
+    padding: 0.7rem 1rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  .part-index a:nth-child(4) {
+    border-left: 1px solid var(--rule);
+  }
+  .part-index span {
+    display: inline-block;
+    margin-right: 0.5rem;
+    margin-bottom: 0.4rem;
+  }
+  .part-index strong {
+    display: inline;
+    font-size: 0.85rem;
+  }
+  .part-index small {
+    margin-top: 0.2rem;
+  }
+  .workshop {
+    display: flex;
+    flex-direction: column;
+  }
+  .workshop-toolbar {
+    order: 0;
+  }
+  .workshop-grid {
+    order: 2;
+  }
+  .workshop-foot {
+    order: 3;
+  }
+  .drawing svg {
+    height: 460px;
+  }
+  .drawing-corner {
+    display: none;
+  }
+  figcaption {
+    padding-right: 2rem;
+  }
+  .workshop-foot {
+    font-size: 9px;
+  }
+  .workshop-foot span {
+    display: block;
+  }
+  body[data-mode="reading"] .chapter {
+    gap: 0 3rem;
+  }
+}
+@media (max-width: 650px) {
+  .workshop {
+    scroll-margin-top: 9rem;
+  }
+  .masthead {
+    padding: 1rem 5vw;
+    gap: 1rem;
+    align-items: start;
+  }
+  .identity {
+    font-size: 1.4rem;
+    white-space: nowrap;
+  }
+  .identity span {
+    font-size: 7px;
+    letter-spacing: 0.03em;
+  }
+  .masthead nav {
+    gap: 0.7rem;
+    flex-wrap: wrap;
+    justify-content: end;
+    font-size: 10px;
+    max-width: 155px;
+  }
+  .masthead nav > a {
+    min-height: 44px;
+    padding-top: 0.5rem;
+  }
+  .masthead nav button {
+    font-size: 9px;
+    padding: 0.5rem;
+    min-height: 44px;
+  }
+  .introduction {
+    display: block;
+    padding: 2rem 0 1.5rem;
+  }
+  main {
+    padding: 0 5vw;
+  }
+  .edition {
+    font-size: 8px;
+    margin-bottom: 1rem;
+  }
+  h1 {
+    font-size: clamp(3.1rem, 13vw, 5.5rem);
+    line-height: 0.98;
+    margin-bottom: 1.3rem;
+  }
+  .introduction-note {
+    padding: 0;
+    font-size: 0.85rem;
+    max-width: 32em;
+  }
+  .introduction-note p:nth-child(2) {
+    display: none;
+  }
+  .introduction-note .invitation {
+    font-size: 0.95rem;
+    margin-bottom: 0;
+  }
+  .workshop-toolbar {
+    align-items: start;
+    gap: 0.7rem;
+    padding: 1.1rem 0;
+    flex-wrap: wrap;
+  }
+  .workshop-toolbar > div:first-child {
+    padding-left: 0.8rem;
+    flex: 1;
+    min-width: 140px;
+  }
+  #plate-title {
+    font-size: 11px;
+    max-width: 15em;
+  }
+  #plate-subtitle {
+    font-size: 7px;
+    max-width: 23em;
+  }
+  #deconstruct {
+    min-width: 0;
+    padding: 0.75rem 0.8rem;
+    gap: 0.7rem;
+    font-size: 10px;
+    max-width: 160px;
+    line-height: 1.4;
+  }
+  #overview {
+    padding: 0.7rem 0.3rem;
+    font-size: 9px;
+    border: 0;
+  }
+  .workshop-actions {
+    flex-wrap: wrap;
+    justify-content: end;
+    max-width: 160px;
+    gap: 0.3rem;
+  }
+  .part-index a {
+    padding: 0.7rem 0.5rem;
+    min-height: 70px;
+  }
+  .part-index strong {
+    font-size: 0.73rem;
+    white-space: nowrap;
+  }
+  .part-index small {
+    font-size: 8px;
+  }
+  .part-index span {
+    font-size: 8px;
+    margin-right: 0.2rem;
+  }
+  .drawing svg {
+    height: auto;
+    min-height: 270px;
+  }
+  .drawing-tools {
+    top: 0.15rem;
+    right: 0.25rem;
+  }
+  .drawing-tools button {
+    font-size: 8px;
+    padding: 0.5rem;
+    min-height: 44px;
+  }
+  .drawing-viewport.zoomed {
+    max-height: 420px;
+  }
+  .drawing-viewport.zoomed svg {
+    min-width: 850px;
+    width: 850px;
+    min-height: 0;
+  }
+  .drawing figcaption {
+    font-size: 9px;
+    padding: 0.9rem 1rem;
+    min-height: 58px;
+  }
+  .workshop-foot {
+    display: block;
+    padding: 1rem 0 2rem;
+  }
+  .workshop-foot > p {
+    margin-bottom: 0.8rem;
+  }
+  .key-help {
+    font-size: 8px;
+  }
+  body[data-mode="inspect"] .introduction {
+    display: none;
+  }
+  body[data-mode="inspect"] .workshop-grid {
+    display: block;
+  }
+  body[data-mode="inspect"] .drawing {
+    position: relative;
+    top: 0;
+  }
+  body[data-mode="inspect"] .drawing svg {
+    min-height: 0;
+    height: auto;
+  }
+  body[data-mode="inspect"] .drawing-viewport.zoomed svg {
+    width: 850px;
+    height: auto;
+  }
+  .inspection {
+    padding: 2rem 0;
+  }
+  .chapter h2 {
+    font-size: 2.9rem;
+    max-width: 12em;
+  }
+  .chapter-kicker {
+    font-size: 9px;
+  }
+  .chapter .lead {
+    font-size: 1.2rem;
+  }
+  .body-copy {
+    font-size: 0.95rem;
+  }
+  .project-source small {
+    font-size: 0.85rem;
+  }
+  .takeaway {
+    margin: 1.6rem 0;
+  }
+  .mechanics {
+    font-size: 10px;
+  }
+  body[data-mode="reading"] .chapter {
+    display: block;
+    padding: 2.5rem 0;
+  }
+  body[data-mode="reading"] #read {
+    margin-bottom: 2.5rem;
+  }
+  #read h2 {
+    font-size: 2.9rem;
+  }
+  footer {
+    padding: 2rem 5vw;
+    display: block;
+  }
+  footer > p {
+    font-size: 1.5rem;
+  }
+  footer > div {
+    font-size: 9px;
+    margin: 1.5rem 0;
+  }
+  footer > a {
+    font-size: 11px;
+  }
+}
+@media (max-width: 380px) {
+  .workshop-toolbar {
+    display: block;
+  }
+  .workshop-toolbar > div:first-child {
+    width: 100%;
+  }
+  #plate-title,
+  #plate-subtitle {
+    max-width: none;
+  }
+  .workshop-actions {
+    width: 100%;
+    max-width: none;
+    margin-top: 0.8rem;
+    gap: 0.4rem;
+    justify-content: stretch;
+  }
+  #overview {
+    flex: 0 0 90px;
+    text-align: left;
+  }
+  #deconstruct {
+    flex: 1;
+    max-width: none;
+  }
+  .part-index span {
+    display: block;
+    margin: 0 0 0.4rem;
+  }
+}
+@media print {
+  .masthead nav,
+  .introduction,
+  .drawing,
+  .part-index,
+  .workshop-actions,
+  .workshop-foot,
+  .copy-idea,
+  .copy-status,
+  #return-bike,
+  footer,
+  .drawing-tools {
+    display: none !important;
+  }
+  .inspection,
+  .chapter,
+  #read {
+    display: block !important;
+    padding: 1rem 0 !important;
+    max-width: 100% !important;
+  }
+  .workshop-grid {
+    display: block !important;
+  }
+  .chapter {
+    break-inside: avoid;
+    border-top: 1px solid;
+    margin: 2rem 0;
+  }
+  .chapter h2 {
+    font-size: 2rem;
+  }
+  .project-source:after {
+    content: attr(href);
+    font: 9px monospace;
+    overflow-wrap: anywhere;
+  }
+  main {
+    padding: 0;
+  }
+  .masthead {
+    padding: 0 0 1rem;
+  }
+  .workshop-toolbar {
+    display: none;
+  }
+  .mechanics {
+    display: none;
+  }
+}
