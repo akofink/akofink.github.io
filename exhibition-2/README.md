@@ -17,18 +17,18 @@ Open **http://localhost:4174/**. The server binds only to `127.0.0.1`; override 
 
 ## Ten different interaction grammars
 
-| World | Implemented experience | Useful piece |
-| --- | --- | --- |
-| Switchyard | Three lines redraw a connected itinerary and transfer ticket | Contextual project navigation |
-| Open the machine | Range-controlled exploded assembly and inspectable parts | Separating reusable setup, records and external actions |
-| Silent score | Rotate, reverse and feature project phrases in a five-part arrangement | Content as a composable sequence, without audio |
-| Contour atlas | Two editorial trails change the path and reorder five waypoints | Guided exploration without scroll hijacking |
-| Idea press | Set one of three principles; print an actual source-linked sheet | A useful, local takeaway without signup |
-| Seed garden | Plant squares, change growth rules and advance deterministic seasons | Visible rules and deliberate, inspectable stepping |
-| X-ray table | Reveal the local-first choices behind a musical interface | Pair the visible result with invisible constraints |
-| Tradeoff hearing | Admit work, spend a chosen budget, compare processing all at once | Honest queue accounting, not a performance claim |
-| City windows | Choose an imagined hour and open six rooms of interests | A personal spatial index without real-location collection |
-| Folding zine | Read five leaves, each connecting an interest to a public project | A compact narrative instead of an activity feed |
+| World            | Implemented experience                                                 | Useful piece                                              |
+| ---------------- | ---------------------------------------------------------------------- | --------------------------------------------------------- |
+| Switchyard       | Three lines redraw a connected itinerary and transfer ticket           | Contextual project navigation                             |
+| Open the machine | Range-controlled exploded assembly and inspectable parts               | Separating reusable setup, records and external actions   |
+| Silent score     | Rotate, reverse and feature project phrases in a five-part arrangement | Content as a composable sequence, without audio           |
+| Contour atlas    | Two editorial trails change the path and reorder five waypoints        | Guided exploration without scroll hijacking               |
+| Idea press       | Set one of three principles; print an actual source-linked sheet       | A useful, local takeaway without signup                   |
+| Seed garden      | Plant squares, change growth rules and advance deterministic seasons   | Visible rules and deliberate, inspectable stepping        |
+| X-ray table      | Reveal the local-first choices behind a musical interface              | Pair the visible result with invisible constraints        |
+| Tradeoff hearing | Admit work, spend a chosen budget, compare processing all at once      | Honest queue accounting, not a performance claim          |
+| City windows     | Choose an imagined hour and open six rooms of interests                | A personal spatial index without real-location collection |
+| Folding zine     | Read five leaves, each connecting an interest to a public project      | A compact narrative instead of an activity feed           |
 
 Each world includes a direct, static biography and all five public project descriptions with source links and ideas to borrow. Shared factual content comes from `../exhibition/content.mjs`; each experience has its own composition, controls and narrative. All metaphors are labeled as illustrations, not literal maps, schedules, hardware, ecological models or benchmarks.
 
@@ -49,8 +49,10 @@ PLAYWRIGHT_SKIP_BROWSER_GC=1 npx playwright install chromium
 EVIDENCE_DIR=/your/ignored/evidence npm run test:browser
 ```
 
-The browser suite exercises 1440px desktop and 390px touch-emulated mobile layouts, initial and interacted axe states, actual control results, skip-link focus, keyboard activation, seed-grid navigation, reduced motion, a standard-motion context, source-linked print styling, no-script directories and a 200%-zoom-equivalent CSS viewport. It captures rendered screenshots and an actual Chromium-generated print PDF. The print invocation is stubbed in automation; the PDF verifies print layout, not an operating-system print dialog or printer.
+The browser suite exercises 1440px desktop and 390px touch-emulated mobile layouts, initial and interacted axe states, actual control results, skip-link focus, keyboard activation, seed-grid navigation, reduced motion, a standard-motion context, source-linked print styling, no-script directories a 200%-zoom-equivalent CSS viewport, and additional 320px/768px layouts. Gallery images are scrolled into view and decoded before full-page evidence capture, so lazy images are not misrepresented as missing. It captures rendered screenshots and an actual Chromium-generated print PDF. The print invocation is stubbed in automation; the PDF verifies print layout, not an operating-system print dialog or printer.
 
 These are Chromium checks, not a claim of universal accessibility. No physical phone, screen reader, Firefox, Safari, voice-control or motor-accessibility user study has been completed. Screenshots do not establish subjective memorability. The exhibition is for human comparison and can be rejected in favor of the original site.
+
+Gallery previews are actual rendered experience captures, not concept illustrations. They include interacted states; the hearing thumbnail retains its initial pending queue. To regenerate after running browser checks, run `uv run make-previews.py /your/ignored/evidence`, then rebuild. Only page captures are converted; never use desktop screenshots or private records as input.
 
 See [SOURCES.md](SOURCES.md) for facts and privacy boundaries.
